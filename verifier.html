@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vérification membre CJED</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f7f5;margin:0;color:#111}
+.wrap{max-width:560px;margin:40px auto;padding:18px}.card{background:white;border-radius:18px;padding:28px;box-shadow:0 5px 25px #0002}
+.logo{font-size:38px;font-weight:800;color:#10245b}.logo span{color:#168c36}
+.ok{color:#087a2d;font-weight:800;font-size:20px}.row{padding:10px 0;border-bottom:1px solid #eee}
+.label{font-size:12px;color:#667;font-weight:700;text-transform:uppercase}.value{font-size:17px;margin-top:3px}
+.err{color:#a40000;font-weight:700}
+</style></head>
+<body><div class="wrap"><div class="card">
+<div class="logo">CJ<span>ED</span></div>
+<h1>Vérification d’adhésion</h1><div id="result">Vérification en cours…</div>
+</div></div>
+<script>
+const id=new URLSearchParams(location.search).get('id');
+fetch('members.json').then(r=>r.json()).then(ms=>{
+ const m=ms.find(x=>x.id===id), box=document.getElementById('result');
+ if(!m){box.innerHTML='<p class="err">❌ Membre introuvable. Ce QR code n’est pas reconnu par la base CJED.</p>';return;}
+ box.innerHTML=`
+ <p class="ok">✅ MEMBRE CJED VÉRIFIÉ</p>
+ ${[['Nom',m.prenom+' '+m.nom],['N° membre',m.id],['Fonction',m.fonction],['Cellule',m.cellule],
+ ['Téléphone',m.telephone],['Email',m.email],['Adresse',m.adresse],['Statut',m.statut],
+ ['Validité',m.expiration]].map(([a,b])=>`<div class="row"><div class="label">${a}</div><div class="value">${b||'—'}</div></div>`).join('')}`;
+});
+</script></body></html>
