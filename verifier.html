@@ -124,14 +124,11 @@ if (!idRecherche) {
     .then(members => {
 
         const membre = members.find(m => {
+    const identifiant = String(m.id || "").trim().toUpperCase();
+    const recherche = String(idRecherche || "").trim().toUpperCase();
 
-            const identifiant =
-                m.id || m.identifiant || m.numero || m.numero_membre;
-
-            return String(identifiant).trim() ===
-                   String(idRecherche).trim();
-
-        });
+    return identifiant === recherche;
+});
 
         if (!membre) {
 
