@@ -109,7 +109,13 @@ if (!idRecherche) {
 
 } else {
 
-fetch("./members.json?cache=" + Date.now())
+fetch("./members.json")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Impossible de charger members.json");
+        }
+        return response.json();
+    })
 
     .then(response => {
 
