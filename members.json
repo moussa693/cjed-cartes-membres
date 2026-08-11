@@ -23,5 +23,30 @@
     "adresse": "Louga Artillerie Nord",
     "statut": "Membre actif",
     "expiration": "31/12/2026"
+  },  },
+  {
+    "id": "CJED-COM-2026-0003",
+    "nom": "Tall",
+    "prenom": "Astou",
+    "fonction": "Membre du Comité de Finance",
+    "cellule": "Comité de Finance",
+    "telephone": "+221 77 317 43 26",
+    "email": "Astou683@gmail.com",
+    "adresse": "Artillerie",
+    "statut": "Membre actif",
+    "expiration": "31/12/2026"
+  },
+  {
+    "id": "CJED-COM-2026-0004",
+    "nom": "Fall",
+    "prenom": "Awa",
+    "fonction": "Membre",
+    "cellule": "Cellule Féminine",
+    "telephone": "+221 77 845 12 24",
+    "email": "awafall2697@gmail.com",
+    "adresse": "Artillerie Nord",
+    "statut": "Membre actif",
+    "expiration": "31/12/2026"
   }
+]
 ]
